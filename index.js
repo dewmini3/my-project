@@ -1,8 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import studentRouter from "./routers/studentRouters.js";
 import userRouter from "./routers/userRouter.js";
+import productRouter from "./routers/productRouter.js";
+
 import jwt from "jsonwebtoken"
 
 
@@ -47,8 +48,8 @@ mongoose.connect(connectionString).then(()=>{
     console.log("failed to connect database")
 })*/
 
-        app.use("/students",studentRouter)
-        app.use("/users",userRouter)
+        app.use("/api/users",userRouter)
+        app.use("/api/products",productRouter)
 
 app.listen(5000, ()=>{
     console.log("Server is running on port 5000");
